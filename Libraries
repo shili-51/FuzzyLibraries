@@ -1,0 +1,44 @@
+Fuzzy matching is often referred to as edit-distance, i.e., how much does string A need to be edited to match string B? 
+There are multiple methods of calculating the similarity metric.
+Fuzzy matching is a simple yet very useful data processing technique. 
+It is used in web applications in different aspects and is also included in many data processing pipelines. 
+
+Python has a lot of implementations for fuzzy matching algorithms.
+1) FuzzyWuzzy
+FuzzyWuzzy uses the Levenshtein distance implementation of fuzzy matching to give you a ratio score between the provided sentences.
+Install the library using pip install fuzzywuzzy
+
+Levenshtein distance
+ It decides the similarity between 2 strings by computing the minimum number of single-character edits required to convert the first string to the second string. 
+ Levenshtein considers the following operations as an edit:
+
+Addition
+Deletion
+Substitution
+The smaller the no. of required edits is, the closer the two strings are.
+
+2) Rapidfuzz
+
+RapidFuzz is the exact same implementation as FuzzyWuzzy but is mostly written in C++ and offers additional algorithmic improvements over it. 
+Its C++ implementation makes this library extremely fast, and it offers some additional benefits over FuzzyWuzzy.
+Install the library using pip install rapidfuzz
+
+It is an MIT license, so are you free to choose whichever license for your project.
+It includes additional implementations such as Jaro-Winkler, which are not present in FuzzyWuzzy
+You can install this library using the following command.
+
+Jaro Wrinkler Distance
+The Jaro similarity returns a score between 0 and 1, where 0 represents no match, and 1 represents that the strings are exactly alike. 
+Jaro-Winkler modifies the formula by applying more weightage to the first i matching characters.
+
+Applications of Fuzzy Matching
+String matching plays an important part in everyday applications. When you search something on google, and it corrects your typo with the famous 
+“Including results for: …”.
+In the background, Google actually runs your query through an edit-distance algorithm and matches it with every word in a pre-defined dictionary. 
+Another example of the same functionality is the auto-correct feature on your phone.
+
+It is also used in many search algorithms that pop up suggestions of terms that resemble the actual query. 
+This makes the search feature more advanced as you can find the correct match even if you do not input the exact terms.
+
+A more application of fuzzy-matching is in the de-duplication of records in a database. 
+Many times our records contain similar data, so tricks like ‘groupby’ do not work. Fuzzy matching helps with picking out all records within the defined threshold.
